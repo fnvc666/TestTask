@@ -1,0 +1,23 @@
+[
+  {"id":"C63A6F24-2A7C-4C39-B1F7-2B9E0A1C9A01","title":"Wireless Mouse","description":"Ergonomic 2.4GHz mouse with silent clicks.","price":19.99},
+  {"id":"0C0B4E54-7F01-4D7F-AE1E-6B9E2F2D3F02","title":"Mechanical Keyboard","description":"Compact 75% keyboard, hot-swap switches.","price":89.00},
+  {"id":"F8D9D1CE-6B2E-4C8A-9B9C-4D2F6E7A8B03","title":"USB-C Hub","description":"6-in-1 hub: HDMI, USB-A, SD, micro-SD, PD.","price":34.50},
+  {"id":"B2C7E5A1-9D73-4F5A-8D1A-2F3E4D5C6B04","title":"Bluetooth Headphones","description":"Over-ear, 40h battery, noise isolation.","price":59.90},
+  {"id":"A4E1C3D2-5B67-4A89-8F10-2E3D4C5B6A05","title":"Portable Charger 20K","description":"Power bank 20,000mAh, 22.5W fast charge.","price":39.99},
+  {"id":"D1E2F3A4-B5C6-4D7E-8F90-1A2B3C4D5E06","title":"Smart LED Bulb","description":"RGB, Wi-Fi, Siri/Google/Alexa support.","price":12.99},
+  {"id":"E7F6D5C4-B3A2-4A19-9C8D-7E6F5D4C3B07","title":"Laptop Stand","description":"Aluminum adjustable stand, improves airflow.","price":27.49},
+  {"id":"11223344-5566-7788-99AA-BBCCDDEEFF08","title":"Webcam 1080p","description":"Full HD with dual mics and privacy shutter.","price":45.00},
+  {"id":"09F1E2D3-C4B5-A6B7-98C9-D0E1F2A3B409","title":"NVMe SSD 1TB","description":"PCIe 3.0, up to 3500MB/s read.","price":72.90},
+  {"id":"AB12CD34-EF56-7890-AB12-CD34EF56AB10","title":"Action Camera","description":"4K60, waterproof case, image stabilization.","price":119.00},
+  {"id":"1A2B3C4D-5E6F-7081-92A3-B4C5D6E7F811","title":"Smart Plug","description":"Remote on/off, schedules, energy monitor.","price":15.49},
+  {"id":"22AA33BB-44CC-55DD-66EE-77FF8899AA12","title":"Fitness Tracker","description":"Heart rate, sleep, 5ATM, 10-day battery.","price":39.00},
+  {"id":"3B2A190F-7E0D-4F5A-8621-5E9D4C3B2A13","title":"eBook Reader","description":"6\" e-ink, front light, 8GB storage.","price":89.99},
+  {"id":"55667788-99AA-BBCC-DDEE-FF0011223314","title":"USB-C Cable 2m","description":"60W PD, braided, durable connectors.","price":8.99},
+  {"id":"7C6B5A49-3817-2605-1403-928170695A15","title":"Desk Mat","description":"PU leather, anti-slip, 80×40 cm.","price":16.50},
+  {"id":"8D9E0F1A-2B3C-4D5E-6F70-8192A3B4C516","title":"Portable Speaker","description":"IPX7, 12h playtime, deep bass.","price":33.00},
+  {"id":"90AB12CD-34EF-56AB-78CD-90EF12ABCD17","title":"Wireless Charger","description":"Mag-safe compatible, 15W fast charge.","price":21.99},
+  {"id":"AA11BB22-CC33-DD44-EE55-FF6677889918","title":"Tripod Stand","description":"Aluminum, 160 cm, phone mount included.","price":24.99},
+  {"id":"F0E1D2C3-B4A5-96E7-88D9-C0B1A2D3E419","title":"Microphone USB","description":"Cardioid condenser, mute, gain knob.","price":54.90},
+  {"id":"1F2E3D4C-5B6A-7988-90A1-B2C3D4E5F620","title":"Desk Lamp","description":"Dimmable, 3 color temps, USB charging port.","price":18.75}
+]
+
