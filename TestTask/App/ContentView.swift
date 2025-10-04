@@ -7,9 +7,28 @@
 
 import SwiftUI
 
+enum AppTab: Hashable { case catalog, browser, settings }
+
 struct ContentView: View {
+    @EnvironmentObject var products: ProductsStore
+    @EnvironmentObject var favorites: FavoritesStore
+    @EnvironmentObject var cart: CartStore
+    @EnvironmentObject var theme: ThemeStore
+    
+    @State private var tab: AppTab = .catalog
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $tab) {
+            Tab("Catalog", systemImage: "bag", value: AppTab.catalog) {
+                CatalogView()
+            }
+            Tab("Browser", systemImage: "network", value: AppTab.browser) {
+                BrowserView()
+            }
+            Tab("Settings", systemImage: "gear", value: AppTab.settings) {
+                SettingsView()
+            }
+        }
     }
 }
 
