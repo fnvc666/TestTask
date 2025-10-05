@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $tab) {
             Tab("Catalog", systemImage: "bag", value: AppTab.catalog) {
-                CatalogView()
+                CatalogView(vm: .init(products: products, favorites: favorites, cart: cart))
             }
             Tab("Browser", systemImage: "network", value: AppTab.browser) {
                 BrowserView()
