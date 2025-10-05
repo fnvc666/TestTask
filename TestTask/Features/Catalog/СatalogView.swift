@@ -51,7 +51,7 @@ struct CatalogView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
-                        FavoriteView()
+                        FavoriteView(vm: .init(products: productsStore, favorites: favoritesStore))
                     } label: { Image(systemName: "heart.fill") }
                 }
                 
