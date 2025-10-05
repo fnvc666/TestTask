@@ -21,6 +21,7 @@ struct TestTaskApp: App {
                 .environmentObject(favorites)
                 .environmentObject(cart)
                 .environmentObject(theme)
+                .preferredColorScheme(theme.theme.colorScheme)
         }
     }
 }
