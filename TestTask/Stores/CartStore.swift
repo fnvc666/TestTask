@@ -22,6 +22,11 @@ final class CartStore: ObservableObject {
         items[id, default: 0] += 1
     }
     
+    func dec(_ id: UUID) {
+        let new = (items[id] ?? 0) - 1
+        if new <= 0 { items.removeValue(forKey: id) } else { items[id] = new }
+    }
+    
     func clear() {
         items.removeAll()
     }
