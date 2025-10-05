@@ -8,11 +8,60 @@
 import SwiftUI
 
 struct CatalogView: View {
+    @StateObject var vm: CatalogViewModel
+    
+    @EnvironmentObject private var productsStore: ProductsStore
+    @EnvironmentObject private var favoritesStore: FavoritesStore
+    @EnvironmentObject private var cartStore: CartStore
+    
     var body: some View {
-        Text("Catalog View")
+        NavigationStack {
+            Group {
+                if vm.isLoading {
+                    ProgressView()
+                } else if vm.filtered.isEmpty {
+                    Text("No such product was found")
+                }
+                else {
+                    List(vm.filtered) { item in
+                        NavigationLink(value: item) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(item.title).font(.headline)
+                                    Text(item.description)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(2)
+                                }
+                                Spacer()
+                                VStack(alignment: .trailing, spacing: 6) {
+                                    Text(String(format: "%.2f$", item.price)).bold()
+                                    Image(systemName: vm.isFavorite(item.id) ? "heart.fill" : "heart")
+                                }
+                            }
+                        }
+                    }
+                    .navigationDestination(for: Product.self) { product in
+                        ProductDetailsView()
+                    }
+                }
+            }
+            .searchable(text: $vm.query, prompt: "Search")
+            .navigationTitle("Catalog")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink {
+                        FavoriteView()
+                    } label: { Image(systemName: "heart.fill") }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        CartView()
+                    } label: { Image(systemName: "cart.fill") }
+                }
+            }
+        }
+        .task { await vm.load() }
     }
-}
-
-#Preview {
-    CatalogView()
 }

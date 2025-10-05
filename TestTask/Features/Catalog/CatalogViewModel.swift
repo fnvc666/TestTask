@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class CatalogViewModel: ObservableObject {
     @Published var query: String = ""
     @Published private(set) var items: [Product] = []
@@ -26,7 +27,7 @@ final class CatalogViewModel: ObservableObject {
         defer { isLoading = false }
         
         await products.loadIfNeeded()
-        items = await products.products
+        items = products.products
     }
     
     var filtered: [Product] {
