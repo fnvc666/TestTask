@@ -26,7 +26,7 @@ struct ContentView: View {
                 BrowserView(vm: .init(), currentTab: $tab)
             }
             Tab("Settings", systemImage: "gear", value: AppTab.settings) {
-                SettingsView()
+                SettingsView(vm: .init(theme: theme))
             }
         }
     }

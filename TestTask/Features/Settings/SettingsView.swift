@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct SettingsView: View {
-    var body: some View {
-        Text("Settings View")
-    }
-}
+    @StateObject var vm: SettingsViewModel
 
-#Preview {
-    SettingsView()
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Тема") {
+                    Picker("Тема", selection: Binding(
+                        get: { vm.selected },
+                        set: { vm.set($0) }
+                    )) {
+                        ForEach(AppTheme.allCases) { theme in
+                            Text(theme.title).tag(theme)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+            }
+            .navigationTitle("Настройки")
+        }
+    }
 }
