@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class ProductsStore: ObservableObject {
     @Published private(set) var products: [Product] = []
     
