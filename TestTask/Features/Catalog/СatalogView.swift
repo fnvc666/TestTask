@@ -42,7 +42,7 @@ struct CatalogView: View {
                         }
                     }
                     .navigationDestination(for: Product.self) { product in
-                        ProductDetailsView()
+                        ProductDetailsView(vm: .init(product: product, favorites: favoritesStore, cart: cartStore))
                     }
                 }
             }

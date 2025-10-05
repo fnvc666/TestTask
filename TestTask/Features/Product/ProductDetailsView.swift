@@ -8,11 +8,48 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @StateObject var vm: ProductDetailsViewModel
 
-#Preview {
-    ProductDetailsView()
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(vm.product.title)
+                        .font(.title)
+                        .bold()
+                    Text("ID: \(vm.product.id)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text(vm.product.description)
+                        .font(.body)
+                }
+                Spacer()
+                Text(String(format: "%.2f$", vm.product.price))
+                    .bold()
+            }
+
+            HStack() {
+                Button {
+                    vm.toggleFavorite()
+                } label: {
+                    Label(vm.isFavorite ? "Убрать из избранного" : "В избранное",
+                          systemImage: vm.isFavorite ? "heart.slash" : "heart")
+                }
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
+                
+                Button {
+                    vm.addToCart()
+                } label: {
+                    Label("В корзину", systemImage: "cart.badge.plus")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            Spacer()
+        }
+        .padding()
+        .navigationTitle(vm.product.title)
+        .navigationBarTitleDisplayMode(.inline)
+    }
 }
