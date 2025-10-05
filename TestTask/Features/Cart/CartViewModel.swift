@@ -9,13 +9,18 @@ import SwiftUI
 
 @MainActor
 final class CartViewModel: ObservableObject {
-    typealias Entry = (product: Product, amount: Int)
+    struct Entry: Identifiable, Hashable {
+        let product: Product
+        var amount: Int
+        var id: UUID { product.id }
+        var subtotal: Double { Double(amount) * product.price }
+    }
     
     @Published private(set) var entries: [Entry] = []
     @Published private(set) var total: Double = 0
     
-    private let products: ProductsStore
-    private let cart: CartStore
+    let products: ProductsStore
+    let cart: CartStore
     
     init(products: ProductsStore, cart: CartStore) {
         self.products = products
@@ -24,10 +29,12 @@ final class CartViewModel: ObservableObject {
     }
     
     func rebuild() {
-        entries = cart.items.compactMap { (id, amount) in
+        entries = cart.items.compactMap { (id, amount) -> Entry? in
             guard let product = products.product(by: id) else { return nil }
-            return (product, amount)
+            return Entry(product: product, amount: amount)
         }
+        
+        total = entries.reduce(0, { $0 + $1.subtotal })
     }
     
     func increase(_ id: UUID) { cart.add(id); rebuild() }
