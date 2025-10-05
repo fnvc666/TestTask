@@ -23,7 +23,7 @@ struct ContentView: View {
                 CatalogView(vm: .init(products: products, favorites: favorites, cart: cart))
             }
             Tab("Browser", systemImage: "network", value: AppTab.browser) {
-                BrowserView()
+                BrowserView(vm: .init(), currentTab: $tab)
             }
             Tab("Settings", systemImage: "gear", value: AppTab.settings) {
                 SettingsView()
