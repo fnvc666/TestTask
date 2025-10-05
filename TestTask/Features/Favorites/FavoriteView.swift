@@ -43,8 +43,8 @@ struct FavoriteView: View {
                 }
             }
         }
-        .searchable(text: $vm.query, placement: .navigationBarDrawer(displayMode: .always),  prompt: "Search")
-        .navigationTitle("Favorites")
+        .searchable(text: $vm.query, placement: .navigationBarDrawer(displayMode: .always),  prompt: "Поиск")
+        .navigationTitle("Избранное")
     }
 }
 

@@ -19,13 +19,13 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $tab) {
-            Tab("Catalog", systemImage: "bag", value: AppTab.catalog) {
+            Tab("Каталог", systemImage: "bag", value: AppTab.catalog) {
                 CatalogView(vm: .init(products: products, favorites: favorites, cart: cart))
             }
-            Tab("Browser", systemImage: "network", value: AppTab.browser) {
+            Tab("Мини-Браузер", systemImage: "network", value: AppTab.browser) {
                 BrowserView(vm: .init(), currentTab: $tab)
             }
-            Tab("Settings", systemImage: "gear", value: AppTab.settings) {
+            Tab("Настройки", systemImage: "gear", value: AppTab.settings) {
                 SettingsView(vm: .init(theme: theme))
             }
         }

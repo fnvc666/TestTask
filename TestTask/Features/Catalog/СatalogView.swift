@@ -20,7 +20,7 @@ struct CatalogView: View {
                 if vm.isLoading {
                     ProgressView()
                 } else if vm.filtered.isEmpty {
-                    Text("No such product was found")
+                    Text("Такой продукт не был найден")
                 }
                 else {
                     List(vm.filtered) { item in
@@ -46,8 +46,8 @@ struct CatalogView: View {
                     }
                 }
             }
-            .searchable(text: $vm.query, prompt: "Search")
-            .navigationTitle("Catalog")
+            .searchable(text: $vm.query, prompt: "Поиск")
+            .navigationTitle("Каталог")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
