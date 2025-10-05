@@ -36,7 +36,6 @@ struct CatalogView: View {
                                 Spacer()
                                 VStack(alignment: .trailing, spacing: 6) {
                                     Text(String(format: "%.2f$", item.price)).bold()
-                                    Image(systemName: vm.isFavorite(item.id) ? "heart.fill" : "heart")
                                 }
                             }
                         }

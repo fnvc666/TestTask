@@ -80,15 +80,22 @@ struct WebViewWrapper: UIViewRepresentable {
         }
         
         func webView(_ webView: WKWebView, didFail: WKNavigation!, withError error: Error) {
-            DispatchQueue.main.async { [weak self] in
-                self?.parent.vm.finishLoadingFail(error.localizedDescription)
-                self?.parent.vm.updateNavAvailability(from: webView)
-            }
+            handleNavigationError(error, webView: webView)
+        }
+
+        func webView(_ webView: WKWebView, didFailProvisionalNavigation: WKNavigation!, withError error: Error) {
+            handleNavigationError(error, webView: webView)
         }
         
-        func webView(_ webView: WKWebView, didFailProvisionalNavigation: WKNavigation!, withError error: Error) {
+        private func handleNavigationError(_ error: Error, webView: WKWebView) {
+            let nsError = error as NSError
+            
             DispatchQueue.main.async { [weak self] in
-                self?.parent.vm.finishLoadingFail(error.localizedDescription)
+                if nsError.domain == NSURLErrorDomain && nsError.code == -999 {
+                    self?.parent.vm.finishLoadingOK()
+                } else {
+                    self?.parent.vm.finishLoadingFail(error.localizedDescription)
+                }
                 self?.parent.vm.updateNavAvailability(from: webView)
             }
         }
